@@ -1,6 +1,6 @@
 # Brent Volatility Forecasting — Hormuz Crisis 2026
 
-Forecasts Brent crude oil daily volatility across the 2026 Strait of Hormuz crisis using GARCH(1,1)-t, LSTM, and a GARCH+LSTM hybrid. WTI is included as a robustness check.
+Forecasts Brent crude oil daily volatility across the 2026 Strait of Hormuz crisis using GARCH(1,1), LSTM, and a GARCH+LSTM hybrid. WTI is included as a robustness check.
 
 ## Files
 
@@ -20,7 +20,7 @@ All four models use the same rolling one-step-ahead design: refit every 5 tradin
 
 | Model | Description |
 |---|---|
-| GARCH (rolling) | GARCH(1,1)-t on log returns, order confirmed BIC-optimal |
+| GARCH (rolling) | GARCH(1,1) on log returns, order confirmed BIC-optimal |
 | LSTM (ε²) | 2-layer LSTM, 128 units, 22-day lookback, targets squared demeaned returns |
 | Hybrid | GARCH forecast + LSTM correction of GARCH residuals, floored at 20% of GARCH |
 | LSTM (Vol/OHLC) | Same LSTM but targets a Rogers–Satchell/Yang–Zhang range estimator |
@@ -40,4 +40,4 @@ Evaluated on the crisis test window by RMSE, MAE, and QLIKE (primary metric).
 | WTI | LSTM (Vol/OHLC) | 0.007684 | 0.002490 | −3.8189 |
 | WTI | Hybrid | 0.005544 | 0.002965 | −3.4299 |
 
-GARCH wins on both series by QLIKE. The hybrid is near-identical to GARCH on Brent but weakest on WTI. The standalone LSTM gets the lowest MAE on both series but poor QLIKE — it predicts a near-constant low value that misses the large spikes QLIKE penalizes most.
+GARCH wins on both series by QLIKE. The hybrid is near identical to GARCH on Brent but weakest on WTI. The standalone LSTM gets the lowest MAE on both series but poor QLIKE. It predicts a near constant low value that misses the large spikes.
