@@ -40,4 +40,4 @@ Evaluated on the crisis test window by RMSE, MAE, and QLIKE (primary metric).
 | WTI | LSTM (Vol/OHLC) | 0.007684 | 0.002490 | −3.8189 |
 | WTI | Hybrid | 0.005544 | 0.002965 | −3.4299 |
 
-GARCH wins on both series by QLIKE. The hybrid is near identical to GARCH on Brent but weakest on WTI. The standalone LSTM gets the lowest MAE on both series but poor QLIKE. It predicts a near constant low value that misses the large spikes.
+GARCH ranks first on both series by QLIKE. The hybrid is near identical to GARCH on Brent but weakest on WTI. The standalone LSTM gets the lowest MAE on both series but poor QLIKE. It predicts a near constant low value that misses the large spikes.
